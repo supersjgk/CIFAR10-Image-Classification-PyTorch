@@ -7,3 +7,5 @@ The images in CIFAR-10 have 3 color channels: red,green,blue. So, an image is re
 The following model architecture has been used:
 
 ![1_vkQ0hXDaQv57sALXAJquxA](https://user-images.githubusercontent.com/75927878/227108440-14e2230c-fd1b-4865-a77f-bdf61de6ea75.jpg)
+
+To get better accuracy, try different values of hyper-parameters.

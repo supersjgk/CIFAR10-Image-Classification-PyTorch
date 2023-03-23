@@ -55,7 +55,7 @@ class ConvNet(nn.Module):
 	def forward(self,x):
 		out=self.pool(F.relu(self.conv1(x)))
 		out=self.pool(F.relu(self.conv2(out)))
-		out=out.view(-1,16*5*5)
+		out=out.view(-1,16*5*5) #to flatten the output and pass to fully-connected layer
 		out=F.relu(self.fc1(out))
 		out=F.relu(self.fc2(out))
 		out=self.fc3(out)
@@ -64,8 +64,8 @@ class ConvNet(nn.Module):
 
 model=ConvNet().to(device)
 
-loss=nn.CrossEntropyLoss() #This loss chosen because we have a case of multiple class image classification, it applies softmax itself at the end layer
-optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate) #Stochastic Gradient Descent
+loss=nn.CrossEntropyLoss() #This loss is chosen because we have a case of multiple class image classification, it applies softmax itself at the end layer
+optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate) #Stochastic Gradient Descent optimizer
 
 #training
 num_steps=len(train_loader)
